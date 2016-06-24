@@ -26,14 +26,6 @@ class ViewController: UIViewController {
     
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let tipOption = defaults.integerForKey("default_tip")
-        tipControl.selectedSegmentIndex = tipOption
-        //onEditingChanged(self)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,5 +49,13 @@ class ViewController: UIViewController {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
-}
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let tipOption = defaults.integerForKey("default_tip")
+        tipControl.selectedSegmentIndex = tipOption
+
+    }}
 

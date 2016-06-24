@@ -26,27 +26,21 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func onTipChanged(sender: UISegmentedControl) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(sender.selectedSegmentIndex, forKey:"default_tip")
+        defaults.synchronize()
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //let defaults = NSUserDefaults.standardUserDefaults()
-        //let tipOption = defaults.integerForKey("default_tip")
-        defaultTip.selectedSegmentIndex = 1
-        
-        
-        
-    }
-
-    @IBAction func onTipChanged(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(defaultTip.selectedSegmentIndex, forKey:"default_tip")
-        defaults.synchronize()
+        let tipOption = defaults.integerForKey("default_tip")
+        defaultTip.selectedSegmentIndex = tipOption
+        
     }
-    
-    
-    
-    
     
     
     
